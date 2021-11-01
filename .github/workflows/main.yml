@@ -31,7 +31,6 @@ jobs:
         run: mvn clean package -f src/main/webapp/META-INF/maven/kakeibo/kakeibo/pom.xml
 
 
-
        # DockerHub ログイン
       - name: Login to DockerHub
         uses: docker/login-action@v1
