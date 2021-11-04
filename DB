@@ -1,0 +1,54 @@
+
+MySQLDBのインスタンスに接続する(mysql -h <endpoint> -P 3306 -u <mymaster> -p)
+mysql -h database-1.co082efz6cnk.ap-northeast-1.rds.amazonaws.com -P 3306 -u admin -p
+⇒RDS作成の際に指定したパスワードを入力
+
+create database library;
+
+use library;
+
+show tables;
+
+create table book(
+  title varchar(255) Not Null,
+  writer varchar(255) Default Null,
+  publisher varchar(255) Default Null,
+  year int  Default Null,
+  bookKey varchar(36) Not NUll,
+  Primary Key (bookKey)
+);
+
+show tables;
+
+create table user(
+  id varchar(10) Not Null,
+  pass varchar(30) Default Null,
+  name varchar(255) Default Null,
+  Primary Key (id)
+);
+
+show tables;
+
+create table book_user(
+  userId varchar(10) Not Null,
+  bookKey varchar(36) Not NUll,
+  Primary Key (userId,bookKey),
+  Foreign key (userId) References user (id),
+  Foreign key (bookKey) References book (bookKey)
+);
+
+
+shows tables;
+
+
+Insert into user values ( '12345', 'pass', 'Yuuka');
+
+select * from user;
+
+
+
+
+
+
+
+
